@@ -15,7 +15,7 @@
    systemctl enable sshd
    service sshd start
    开启防火墙的22端口
-   firewall-cmd --zone=public add-port=22/tcp --permanent
+   firewall-cmd --zone=public --add-port=22/tcp --permanent
    service firewalld restart
    ```
 
