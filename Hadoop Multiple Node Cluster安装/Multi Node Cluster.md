@@ -13,8 +13,9 @@ vim /etc/hostname
 ```
 
 <center>
-    <img src="C:\Users\USER\Desktop\1.png"/>
+    <img src="https://github.com/leekeiling/Hadoop/blob/master/Hadoop%20Multiple%20Node%20Cluster%E5%AE%89%E8%A3%85/%E5%9B%BE%E7%89%87/1.png?raw=true"/>
 </center>
+
 
 1. 编辑core-site.xml
 
@@ -25,7 +26,7 @@ vim /etc/hostname
    ```
 
    <center>
-       <img src="C:\Users\USER\Desktop\2.png"/>
+       <img src="https://github.com/leekeiling/Hadoop/blob/master/Hadoop%20Multiple%20Node%20Cluster%E5%AE%89%E8%A3%85/%E5%9B%BE%E7%89%87/2.png?raw=true"/>
    </center>
 
 2. 编辑yarn-site.xml
@@ -35,7 +36,7 @@ vim /etc/hostname
    - 设置ResourceManager与客户端的连接地址
 
    <center>
-       <img src="C:\Users\USER\Desktop\3.png"/>
+       <img src="https://github.com/leekeiling/Hadoop/blob/master/Hadoop%20Multiple%20Node%20Cluster%E5%AE%89%E8%A3%85/%E5%9B%BE%E7%89%87/3.png?raw=true"/>
    </center>
 
 3. 编辑mapred-site.xml
@@ -45,7 +46,7 @@ vim /etc/hostname
    ```
 
    <center>
-       <img src="C:\Users\USER\Desktop\4.png"/>
+       <img src="https://github.com/leekeiling/Hadoop/blob/master/Hadoop%20Multiple%20Node%20Cluster%E5%AE%89%E8%A3%85/%E5%9B%BE%E7%89%87/4.png?raw=true"/>
    </center>
 
 4. 编辑hdfs-site.xml
@@ -53,7 +54,7 @@ vim /etc/hostname
    master没有datanode，所以删除原来的datanode设置。
 
    <center>
-       <img src="C:\Users\USER\Desktop\5.png"/>
+       <img src="https://github.com/leekeiling/Hadoop/blob/master/Hadoop%20Multiple%20Node%20Cluster%E5%AE%89%E8%A3%85/%E5%9B%BE%E7%89%87/5.png?raw=true"/>
    </center>
 
 5. 编辑master文件
@@ -65,7 +66,7 @@ vim /etc/hostname
    master文件告诉hadoop系统哪一台服务器是NameNode
 
    <center>
-       <img src="C:\Users\USER\Desktop\6.png"/>
+       <img src="https://github.com/leekeiling/Hadoop/blob/master/Hadoop%20Multiple%20Node%20Cluster%E5%AE%89%E8%A3%85/%E5%9B%BE%E7%89%87/6.png?raw=true"/>
    </center>
 
 6. 编辑slaves文件
@@ -77,7 +78,7 @@ vim /etc/hostname
    ```
 
    <center>
-       <img src="C:\Users\USER\Desktop\7.png"/>
+       <img src="https://github.com/leekeiling/Hadoop/blob/master/Hadoop%20Multiple%20Node%20Cluster%E5%AE%89%E8%A3%85/%E5%9B%BE%E7%89%87/7.png?raw=true"/>
    </center>
 
 #### 复制master服务器到slaver1, slaver2
@@ -91,7 +92,7 @@ vim /etc/hostname
    slaver1和slaver2仅有datanode，所以需删除原来的namenode设置，添加datanode设置。
 
    <center>
-       <img src="C:\Users\USER\Desktop\9.png"/>
+       <img src="https://github.com/leekeiling/Hadoop/blob/master/Hadoop%20Multiple%20Node%20Cluster%E5%AE%89%E8%A3%85/%E5%9B%BE%E7%89%87/9.png?raw=true"/>
    </center>
 
 3. 编辑3个服务器的hosts文件
@@ -101,8 +102,9 @@ vim /etc/hostname
    ```
 
    <center>
-       <img src="C:\Users\USER\Desktop\8.png"/>
+       <img src="https://github.com/leekeiling/Hadoop/blob/master/Hadoop%20Multiple%20Node%20Cluster%E5%AE%89%E8%A3%85/%E5%9B%BE%E7%89%87/8.png?raw=true"/>
    </center>
+
 
    hosts文件为每一个服务器的ip地址添加别名，用ssh登录其他服务器时可以用域名代替ip地址。比如，登录slaver1服务器可以使用这样子的命令：
 
@@ -142,8 +144,9 @@ start-all.sh
 #### 通过jps查看各个服务器的运行情况
 
 <center>
-    <img src="C:\Users\USER\Desktop\11.png"/><img src="C:\Users\USER\Desktop\12.png"/><img src="C:\Users\USER\Desktop\10.png"/>
+    <img src="https://github.com/leekeiling/Hadoop/blob/master/Hadoop%20Multiple%20Node%20Cluster%E5%AE%89%E8%A3%85/%E5%9B%BE%E7%89%87/11.png?raw=true"/><img src="https://github.com/leekeiling/Hadoop/blob/master/Hadoop%20Multiple%20Node%20Cluster%E5%AE%89%E8%A3%85/%E5%9B%BE%E7%89%87/12.png?raw=true"/><img src="https://github.com/leekeiling/Hadoop/blob/master/Hadoop%20Multiple%20Node%20Cluster%E5%AE%89%E8%A3%85/%E5%9B%BE%E7%89%87/10.png?raw=true"/>
 </center>
+
 
 
 
