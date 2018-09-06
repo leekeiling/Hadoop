@@ -182,19 +182,22 @@ public class Knn {
 
 	public static void main(String[] args) throws IOException,
 			ClassNotFoundException, InterruptedException {
+		
+		string file_input_path = ;
+		string file_output_path = ;
 		FileSystem fs = FileSystem.get(new Configuration());
 
 		Job job = new Job(new Configuration());
-		job.setJarByClass(Knn.class); //通过传入的class 找到job的jar包
+		job.setJarByClass(Knn.class); 
 
-		FileInputFormat.setInputPaths(job, new Path(args[0]));
-		job.setMapperClass(KnnMap.class); //设置map class
-		job.setMapOutputKeyClass(Text.class); //设置map输出key的类型为text
-		job.setMapOutputValueClass(Text.class); //设置map输出value的类型为text
+		FileInputFormat.setInputPaths(job, new Path(file_input_path);
+		job.setMapperClass(KnnMap.class); 
+		job.setMapOutputKeyClass(Text.class); 
+		job.setMapOutputValueClass(Text.class); 
 
-		FileOutputFormat.setOutputPath(job, new Path(args[1]));
-		job.setReducerClass(KnnReducer.class); //设置reduce class
-		job.setOutputKeyClass(Text.class); //设置reduce输出key的类型为text
+		FileOutputFormat.setOutputPath(job, new Path(file_output_path));
+		job.setReducerClass(KnnReducer.class);
+		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(NullWritable.class); 
 
 		job.waitForCompletion(true);

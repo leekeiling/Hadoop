@@ -1,6 +1,5 @@
 import java.io.IOException;
 import java.util.StringTokenizer;
-
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
@@ -34,7 +33,7 @@ public class WordCount {
         private final static IntWritable one = new IntWritable(1);  // VALUEOUT
 
         /**
-         * value 是文本每一行的值 
+         * value 是文本每一行的值。
          * context 是上下文对象
          */
         @Override
@@ -108,5 +107,4 @@ public class WordCount {
         // 结束程序
         System.exit(isSuccess ? 0 : 1);
     }
-
 }
