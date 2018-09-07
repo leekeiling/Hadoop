@@ -28,9 +28,9 @@ public class SingleJoin {
                 i++;
             }   
             //左表用0标识     
-            context.write(new Text(values[1]), new Text("0 " + values[0]));
+            context.write(new Text(values[1]), new Text("0" + values[0]));
             //右表用1标识
-            context.write(new Text(values[0]), new Text("1 " + values[1]));
+            context.write(new Text(values[0]), new Text("1" + values[1]));
         }
     }
 
@@ -39,25 +39,26 @@ public class SingleJoin {
         public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
             String[] grandsons = new String[10];
             String[] grandparents = new String[10];
-            int m = 0;
+            int grandson_num = 0;
+            int grandparent_num = 0;
             for(Text value: values)
             {
                 String name = value.toString();
                 if(name.charAt(0)=='0')
                 {
-                    grandsons[m] = name.substring(2);
+                    grandsons[grandson_num] = name.substring(2);
+                    grandson_num++;
                 }
                 else
                 {
-                    grandparents[m] = name.substring(2);
+                    grandparents[grandparent_num] = name.substring(2);
+                    grandparent_num++;
                 }
-                m++;
             }
-
             //笛卡尔积
-            for(int j = 0; j < m; j++)
+            for(int j = 0; j < grandson_num; j++)
             {
-                for(int i = 0; i < m; i++)
+                for(int i = 0; i < grandparent_num; i++)
                 {
                     context.write(new Text(grandsons[j]), new Text(grandparents[i]));
                 }
@@ -68,7 +69,7 @@ public class SingleJoin {
     public static void main(String[] args) throws Exception {
         
         String file_input_path = "/user/root/single/input.txt";
-	    String file_output_path = "/user/root/single/output";  
+	    String file_output_path = "/user/root/single/output/";  
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf, "SingleJoin");     
 
